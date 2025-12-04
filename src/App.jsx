@@ -9,11 +9,6 @@ import { Send, BookOpen, PenTool, MessageSquare, Layout, FileText, ChevronRight,
 
 const GEMINI_MODEL = "gemini-3-pro";
 
-// OPTION B: The experimental "Thinking" model (Use if you specifically need the 'thinking' process shown)
-
-// const GEMINI_MODEL = "gemini-2.0-flash-thinking-exp";
-
-
 const MORAL_FRAMEWORKS_TEXT = `
 
 The 5 Moral Frameworks
