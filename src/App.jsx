@@ -7,7 +7,7 @@ import { Send, BookOpen, PenTool, MessageSquare, Layout, FileText, ChevronRight,
 
 // --- MODEL SELECTION ---
 // OPTION A: The most stable, intelligent model (RECOMMENDED for Demos)
-const GEMINI_MODEL = "gemini-1.5-pro-002";
+const GEMINI_MODEL = "gemini-1.5-flash";
 // OPTION B: The experimental "Thinking" model (Use if you specifically need the 'thinking' process shown)
 // const GEMINI_MODEL = "gemini-2.0-flash-thinking-exp";
 
