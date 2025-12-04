@@ -3,15 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Send, BookOpen, PenTool, MessageSquare, Layout, FileText, ChevronRight, Menu, X, Copy, Save } from 'lucide-react';
 
 
-
-// ==========================================
-
-// 1. CONFIGURATION ZONE (EDIT THIS SECTION)
-
-// ==========================================
-
-
-
 // --- MODEL SELECTION ---
 
 // OPTION A: The most stable, intelligent model (RECOMMENDED for Demos)
@@ -23,144 +14,73 @@ const GEMINI_MODEL = "gemini-1.5-pro-latest";
 // const GEMINI_MODEL = "gemini-2.0-flash-thinking-exp";
 
 
-
-// PASTE THE CONTENT OF YOUR "5 MORAL FRAMEWORKS" PDF HERE
-
-// Keep the backticks (`) around the text.
-
 const MORAL_FRAMEWORKS_TEXT = `
 
 The 5 Moral Frameworks
 
-
-
 Core Topic: Making a difficult ethical decision
-
-
 
 1. Secular Positive Psychology: "Let's use our reason. Which choice causes the least harm and promotes the most well-being for everyone involved?"
 
-
-
 2. Cultural-Moralist ("Be Good"): "Let's look at the rules (like The 10 Commandments) and tradition. What is the 'right' thing to do? Which choice is most honorable and fair?"
-
-
 
 3. Christ-Follower (Grace/Faith): "This isn't about a rulebook, but a relationship. Let's pray for wisdom. Which choice shows more trust in God and denies self-will?"
 
-
-
 4. Islamic (Submission/Tawhid): "What do the Quran and Sunnah say? Which choice is most 'Taqwa' (God-conscious) and aligns with divine law?"
-
-
 
 5. Dharmic/ Buddhist (The Path): "Let's be mindful. Is this decision rooted in desire or aversion? Which path aligns with 'Right Intention' and 'Right Livelihood'?"
 
-
-
 Core Topic: Dealing with a personal failure or mistake
-
-
 
 1. Secular Positive Psychology: "This is a moment for learning, not shame. What can we learn? How can you take responsibility, repair any harm done, and make a better choice next time?"
 
-
-
 2. Cultural-Moralist ("Be Good"): "We're all 'good but flawed.' The important thing is to acknowledge your mistake, learn from it, and try harder to be a better person next time."
-
-
 
 3. Christ-Follower (Grace/Faith): "This failure is 'sin'-a symptom of a sinful nature. The solution isn't to 'try harder.' It's to repent and accept the grace and redemption that's already paid for."
 
-
-
 4. Islamic (Submission/Tawhid): "This is a sin from human weakness. You can seek immediate, direct forgiveness from Allah through 'Tawbah' (repentance). He is 'The All-Forgiving."
-
-
 
 5. Dharmic/Buddhist (The Path): "This failure is impermanent. It is not a permanent 'you.' How can this teach you non-attachment and help you cultivate compassion for your own suffering?"
 
-
-
 Core Topic: Finding meaning or purpose
-
-
 
 1. Secular Positive Psychology: "Purpose is something we create. Where can you best use your unique talents to find personal fulfillment and make a positive contribution to humanity?"
 
-
-
 2. Cultural-Moralist ("Be Good"): "Purpose is found in doing good: being a good parent, contributing to your community, and performing your duties well. Your legacy is the good you leave behind."
-
-
 
 3. Christ-Follower (Grace/Faith): "Purpose is not in what you do, but in who you are. Your identity is 'in Christ.' Your purpose is to know God and make Him known, using your gifts for His glory."
 
-
-
 4. Islamic (Submission/Tawhid): "Purpose is given: to worship and serve Allah ('Ibadah'). Every action, from work to family, can be an act of worship if done with the right intention."
-
-
 
 5. Dharmic/ Buddhist (The Path): "Purpose is found in the path itself. How can this work be a form of 'Right Livelihood'-a way to practice mindfulness, cause no harm, and be of service?"
 
-
-
 Core Topic: Conflict with a loved one
-
-
 
 1. Secular Positive Psychology: "Empathy is key. Let's try to rationally understand their perspective. How can you communicate your needs clearly while also validating their feelings?"
 
-
-
 2. Cultural-Moralist ("Be Good"): "This is about commitment. How can you fulfill your duty in this relationship? What is the 'fair' compromise? You should both give 50/50 to make it work."
-
-
 
 3. Christ-Follower (Grace/Faith): "This relationship is a covenant, not a contract. You are called to a radical, self-denying love. This may mean forgiving unconditionally (70x7)."
 
-
-
 4. Islamic (Submission/Tawhid): "This is a test of patience ('Sabr'). How can you fulfill your duty to them (e.g., respect for parents) while maintaining justice? Seek reconciliation."
-
-
 
 5. Dharmic/ Buddhist (The Path): "Anger is a form of suffering, rooted in attachment. How can you practice 'Right Speech' (no-lying, no-gossip) to reduce the suffering for both of you?"
 
-
-
 Core Topic: Approach to Suffering
-
-
 
 1. Secular Positive Psychology: "Suffering is a problem to be solved or minimized through human reason, compassion, and action. It has no inherent or divine 'purpose. "
 
-
-
 2. Cultural-Moralist ("Be Good"): "Suffering is an anomaly, something to be fixed. It's an obstacle to happiness and 'performing well.' We should question why it's happening to us."
-
-
 
 3. Christ-Follower (Grace/Faith): "Suffering is expected and purposeful. It is a tool God uses for personal repentance, to build endurance, and to draw you closer to Him."
 
-
-
 4. Islamic (Submission/Tawhid): "This is a test from Allah to refine your faith and patience ('Sabr'). It is a way to expiate sins and draw closer to Him. It's not a sign of abandonment."
-
-
 
 5. Dharmic/Buddhist (The Path): "Suffering (Dukkha) is the central fact of existence, caused by attachment. The goal is to uproot its cause through the Eightfold Path."
 
-
-
 Core Topic: The Ultimate End / Hope
 
-
-
 1. Secular Positive Psychology: "Self-Actualization & Legacy. 'I have reached my full potential, lived with integrity, and left the world better than I found it. My impact lives on."
-
-
 
 2. Cultural-Moralist ("Be Good"): "A Good Name & Rest in Peace. 'I did my duty, provided for my own, and kept the traditions. I am remembered with respect and honor by my community."
 
