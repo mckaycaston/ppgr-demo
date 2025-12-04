@@ -11,7 +11,7 @@ import { Send, BookOpen, PenTool, MessageSquare, Layout, FileText, ChevronRight,
 // If you get a 404 error, try switching to 'gemini-2.0-flash-thinking-exp'.
 
 // OPTION A: The most stable, intelligent model (RECOMMENDED for Demos)
-const GEMINI_MODEL = "gemini-1.5-pro";
+const GEMINI_MODEL = "gemini-1.5-pro-latest";
 // OPTION B: The experimental "Thinking" model (Use if you specifically need the 'thinking' process shown)
 // const GEMINI_MODEL = "gemini-2.0-flash-thinking-exp";
 
