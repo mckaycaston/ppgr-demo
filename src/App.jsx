@@ -1767,7 +1767,7 @@ export default function PPGR360App() {
 
   // API Key handling
 
-  const apiKey = "AIzaSyAcXKU0GY1D4UVmp12F8lj8rVkRrmlzcZI"; // In a real app, this would be an environment variable
+  const apiKey = ""; // In a real app, this would be an environment variable
 
 
 
